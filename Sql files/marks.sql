@@ -46,3 +46,6 @@ VALUES
 (120,10,20,15,4);
 
 
+
+SELECT id, english, maths, social, english+maths+social  AS totalmarks 
+FROM marks;
