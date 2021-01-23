@@ -1,0 +1,194 @@
+SQL
+ 
+sql stands for Structured Query Language.(query language not database)
+It is designed for managing data in a relational database management system(RDBMS).
+It is a database language used for database creation, deletion, modifying etc..
+With SQL , a user can access data from a relational database managemnt system. It allows user to define the data in the database and manipulate it when needed.
+The data in RDBMS is stored in database objects called tables. A table is a collection of related data entries and it consists of columns and rows.
+
+JOIN IN SQL
+
+In SQL ,JOIN means to combine two or more tables.
+It combines rows of that tables in one table amd one can retreive the information by a SELECT command.
+ The joining of two or more tables is based on common field between them.
+Different types of join in sql are:
+INNER JOIN: returns records that have matching values in both tables.
+LEFT(OUTER)JOIN: returns all records from the left table and matchd records from right table.
+RIGHT(OUTER)JOIN: returns all records from the right table and matchd records from left table.
+FULL(OUTER)JOIN: returns all records when there is a match in either left or right table.
+
+
+SQL vs NOSQL
+
+Databases are categorized as RDBMS. NoSQL  databases are categorized as Non Relatonal.
+SQL display data in the form of tables. NoSQL databases display data as collection of key-value pairs.
+SQL databases use a powerful language, structured query language to define and manipulate data..In NoSQL databases,collection of documents are used to query the data(unstructured);
+MySQL ,oracle,Sqlite etc are examples of SQL..mONGOdb, BigTable,Redis etc are examples of noSQL.
+SQL good for complex queries ..NOSQL not so good for complex queries ashey are not aspowerful like SQL.
+
+
+ACID PROPERTY
+
+It ensures Data Integrity .It is an acronym for Atomicity, Consistency, Isolation, Durability .
+(transaction means group tasks)
+Atomicity: It means either all operations(insert, update,delete) will take place or none.
+Consistency: It means whatever happens in the middle of the transaction ,it will neverleave the database half way completed.
+Isolation: we cant perform the same operation using multiple transactions at the same time.
+Durability : Once the transaction is completed, changes made to the database will be permanent.  
+
+
+SQL prefferd instead of file saving
+
+No redundant data: no data dupication,saves storage.
+Data Consistency: as no redundancy takes place, data is consistent.
+Data Security: Each user has different set of access thus data is secured from the issues like data leaks, misuse of data..
+Easy Access to data: manages data such a way that the data is easily accessible .
+Easy recovery: easier to full recovery in case of failure.
+
+SQL Databases
+
+Oracle :  provides best price and performance,more predictable andwell documented cocurrency model. documentatio is always superior.
+MySQL : highly organized for its flexibility ,high performance,reliable data protection and ease of management.
+Microsoft SQL Server : works on cloud based and local based servers.
+Sqlite :it is an inprocess library that implements a self contained, serverless database engine.
+MongoDB : general purpose, document based,distributed databasebulit for modern developers.
+
+
+ENTITY
+
+Entity in DBMS can be a real-world object with an existence,.For example, in a College database, the entities can be Professor, Students, Courses, etc.
+Entities has attributes, which can be considered as properties describing it.
+ EX: for Professor entity, the attributes are  Professor_Name, Professor_Address, Professor_Salary, etc.  The attribute value gets stored in the database.
+Tangible entities: those entities which exists in real world.
+Intangible entities: those entities that exists only logically.
+
+
+DIFFERENT TYPES OF ENTITIES
+
+Strong Entity :  The strong entity has a primary key. Weak entities are dependent on strong entity. Its existence is not dependent on any other entity.
+Strong Entity is represented by a single rectangle.
+Weak Entity:  The weak entity in DBMS do not have a primary key and are dependent on the parent entity. It mainly depends on other entities.
+Weak Entity is represented by double rectangle .
+Ex:  Consider two tables of Customer (customerid,name,age,gender) and Address(locality,town,state,customerid) . 
+here address cannot be uniquely identified as there can be many customers from same locality.
+Thus strong entity is the Customer with customerid as the primary key and address is the weak entity.
+
+
+DATA ACCESS OBJECT
+
+Data Access Object Pattern is a structural patter that allow us to isolate the applicaton/businesslayer from thepersistent layer using an abstract API.
+Data Access Object Interface - This interface defines the standard operations to be performed on a model object.
+Data Access Object concrete class - This class implements above interface. 
+This class is responsible to get data from a data source which can be database / xml or any other storage mechanism.
+Model Object or Value Object - This object is simple POJO containing get/set methods to store data retrieved using DAO class.
+
+Steps:
+Create Value Object.
+Create Data Access Object Interface.
+Create concrete class implementing the interface.
+Use the Data Access Object Interface  to demonstrate Data Access Object pattern usage.
+
+
+BEAN CLASS/ POJO CLASS(model class)
+
+A JavaBean is a specially constructed Java class written in the Java and coded according to the JavaBeans API specifications.
+A bean encapsulates many objects into one object so that we can access this object from multipleplaces.
+It provides a default, no-argument constructor.
+It should be serializable and that which can implement the Serializable interface.
+It may have a number of properties which can be read or written.
+It may have a number of "getter" and "setter" methods for the properties.
+POJO stands for Plain Old Java Object.  A normal Java object, not sure by any special restriction, that does not follow any of the major java object modules.
+ But when forced by the Java Language Specification and not requiring any classpath.
+
+
+TRANSACTIONS
+
+Transactions enable you to control if, and when, changes are applied to the database.
+ It treats a single SQL statement or a group of SQL statements as one logical unit, and if any statement fails, the whole transaction fails.
+To enable manual- transaction support instead of the auto-commit mode that the JDBC driver uses by default, use the Connection object's setAutoCommit() method.
+ If you pass a boolean false to setAutoCommit( ), you turn off auto-commit. You can pass a boolean true to turn it back on again.
+Once you are done with your changes and you want to commit the changes then call commit() method on connection object as follows
+ -conn.commit( );
+To roll back updates to the database made using the Connection named conn, use the following code
+ -conn.rollback( );  
+
+.
+STATES OF TRANSACTION
+
+Active - In this state, the transaction is being executed. This is the initial state of every transaction.
+Partially Committed - When a transaction executes its final operation, it is said to be in a partially committed state.
+Failed - A transaction is said to be in a failed state if any of the checks made by the database recovery system fails. 
+A failed transaction can no longer proceed further.
+Aborted - If any of the checks fails and the transaction has reached a failed state, 
+then the recovery manager rolls back all its write operations on the database to bring the database back to its original state
+ where it was prior to the execution of the transaction. Transactions in this state are called aborted. 
+The database recovery module can select one of the two operations after a transaction aborts -
+Re-start the transaction
+Kill the transaction
+Committed - If a transaction executes all its operations successfully, it is said to be committed. 
+All its effects are now permanently established on the database system.
+
+
+
+JDBC DRIVER AND ITS TYPES
+
+JDBC drivers implement the defined interfaces in the JDBC API, for interacting with your database server.
+For example, using JDBC drivers enable you to open database connections and to interact with it by sending SQL or database commands then receiving results with Java.
+The Java.sql package that ships with JDK, contains various classes with their behaviours defined and their actual implementaions are done in third-party drivers.
+ Third party vendors implements the java.sql.Driver interface in their database driver.
+
+JDBC-ODBC bridge driver:
+In a Type 1 driver, a JDBC bridge is used to access ODBC drivers installed on each client machine.
+ Using ODBC, requires configuring on your system a Data Source Name (DSN) that represents the target database.
+When Java first came out, this was a useful driver because most databases only supported ODBC access 
+but now this type of driver is recommended only for experimental use or when no other alternative is available.
+
+Native-API driver(partially java driver) :
+In a Type 2 driver, JDBC API calls are converted into native C/C++ API calls, which are unique to the database. 
+These drivers are typically provided by the database vendors and used in the same manner as the JDBC-ODBC Bridge.
+ The vendor-specific driver must be installed on each client machine.
+If we change the Database, we have to change the native API, as it is specific to a database and they are mostly obsolete now, 
+but you may realize some speed increase with a Type 2 driver, because it eliminates ODBC's overhead.
+
+Network protocol driver(fully java driver) :
+In a Type 3 driver, a three-tier approach is used to access databases. The JDBC clients use standard network sockets to communicate 
+with a middleware application server. The socket information is then translated by the middleware application server into the call format required by the DBMS,
+ and forwarded to the database server.This kind of driver is extremely flexible, since it requires no code installed on the client
+ and a single driver can actually provide access to multiple databases.
+
+Thin driver(fully javadriver) :
+In a Type 4 driver, a pure Java-based driver communicates directly with the vendor's database through socket connection.
+ This is the highest performance driver available for the database and is usually provided by the vendor itself.
+This kind of driver is extremely flexible, you don't need to install special software on the client or server. 
+Further, these drivers can be downloaded dynamically.
+
+
+
+ER DIAGRAM
+
+An ER diagram shows the relationship among entity sets. An entity set is a group of similar entities and these entities can have attributes. 
+In terms of DBMS, an entity is a table or attribute of a table in database, so by showing relationship among tables and their attributes,
+ ER diagram shows the complete logical structure of a database.
+Rectangle: Represents Entity sets.
+Ellipses: Attributes
+Diamonds: Relationship Set
+Lines: They link attributes to Entity Sets and Entity sets to Relationship Set
+Double Ellipses: Multivalued Attributes
+Dashed Ellipses: Derived Attributes
+Double Rectangles: Weak Entity Sets
+Double Lines: Total participation of an entity in a relationship set
+ ER diagram has three main components:
+1. Entity :
+An entity is an object or component of data. An entity is represented as rectangle in an ER diagram.
+2. Attribute :
+An attribute describes the property of an entity. An attribute is represented as Oval in an ER diagram. There are four types of attributes:
+ Key attribute, Composite attribute,  Multivalued attribute, Derived attribute
+3. Relationship :
+A relationship is represented by diamond shape in ER diagram, it shows the relationship among entities. There are four types of relationships:
+One to One,  One to Many, Many to One,  Many to Many
+
+
+
+
+
+
