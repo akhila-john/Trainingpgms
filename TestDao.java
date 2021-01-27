@@ -1,54 +1,58 @@
-package dao;
+package daomodel;
 
-import java.util.List;
 import java.util.Scanner;
-
 
 public class TestDao {
 
 	public static void main(String[] args) {
 		
-          StudentDao std = new StudentDaoImpl();
-          Scanner sc = new Scanner(System.in);
-		//get all students
-		List<Student> details = std.getAllStudents();
 		
-		System.out.println("id"+"  "+"name"+"   "+"gender"+"  "+"stream"+"  "+"mark");
+		//student
+		StudentDao studentdao = new StudentDaoImpl();
+		for(Student student:studentdao.getAllStudents()) {
+			System.out.println(student);
+		}
+		//add student
+		Student ss = new Student();
+		ss.setStudentid(10);
+		ss.setFirstname("akhila");
+		ss.setLastname("john");
+		ss.setGender("F");
+		ss.setBatchid(122);
+	    ss.setPaymentstatus("paid");
+		ss.setBatchname("commerce");
+		studentdao.addStudent(ss);
 		
-		for(Student student: details) {
-			System.out.println(student.getId()+"   "+student.getName()+
-					"      "+student.getGender()+"       "+student.getStream()+
-					"    "+student.getMark());
+		//batch strength
+		studentdao.batchStrength();
+		
+		
+		//batch
+		BatchDao batchdao = new BatchDaoImpl();
+		for(Batch batch:batchdao.getAllBatches()) {
+			System.out.println(batch);
+		}
+		//add new batch
+		Batch bb = new Batch();
+		bb.setBatchid(125);
+		bb.setBatchname("visual");
+		bb.setFee(1800);
+		bb.setTeacherid(655);
+		batchdao.addBatch(bb);
+		
+		//teacher
+		TeacherDao teacherdao = new TeacherDaoImpl();
+		for(Teacher teacher:teacherdao.getAllTeachers()) {
+			System.out.println(teacher);
+		}
+		Teacher tt = new Teacher();
+		tt.setTeacherid(658);
+		tt.setName("renuka");
+		tt.setDesignation("assistant prof");
+		tt.setGender("F");
+		tt.setAddress("kollam");
+		teacherdao.addTeacher(tt);
 
 	}
-		//add students
-		System.out.println("enter the id");
-		int id = sc.nextInt();
-		System.out.println("enter the name");
-		String name = sc.next();
-		System.out.println("enter the gender");
-		String gender = sc.next();
-		System.out.println("enter the stream");
-		String stream = sc.next();
-		System.out.println("enter the mark");
-		int mark = sc.nextInt();
-		std.addStudent(id, name, gender, stream, mark);
-		
-		//mark display
-		System.out.println("enter the name");
-		String name1 = sc.next();
-		System.out.println("mark " + name1+"is :" + std.getMark(name1));
-				
-		//update
-		System.out.println("enter the id");
-		int id1 = sc.nextInt();
-		std.updateStudent(id1);
-		
-		//delete
-		System.out.println("enter id to be deleted");
-		int id2 = sc.nextInt();
-		std.deleteStudent(id2);
-		
-	   
-}
+
 }

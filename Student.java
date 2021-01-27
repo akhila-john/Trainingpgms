@@ -1,24 +1,33 @@
-package dao;
+package daomodel;
 
 public class Student {
-	
-	private int id;
-	private String name;
+
+	private int studentid;
+	private String firstname;
+	private String lastname;
 	private String gender;
-	private String stream;
-	private int mark;
+	private int batchid;
+    private String paymentstatus;
+	private String batchname;
 	
-	public int getId() {
-		return id;
+	
+	public int getStudentid() {
+		return studentid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setStudentid(int studentid) {
+		this.studentid = studentid;
 	}
-	public String getName() {
-		return name;
+	public String getFirstname() {
+		return firstname;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+	public String getLastname() {
+		return lastname;
+	}
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
 	}
 	public String getGender() {
 		return gender;
@@ -26,19 +35,31 @@ public class Student {
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getStream() {
-		return stream;
+	
+	public int getBatchid() {
+		return batchid;
 	}
-	public void setStream(String stream) {
-		this.stream = stream;
-	}
-	public int getMark() {
-		return mark;
-	}
-	public void setMark(int mark) {
-		this.mark = mark;
+	public void setBatchid(int batchid) {
+		this.batchid = batchid;
 	}
 	
+	public String getPaymentstatus() {
+		return paymentstatus;
+	}
+	public void setPaymentstatus(String paymentstatus) {
+		this.paymentstatus = paymentstatus;
+	}
+	public String getBatchname() {
+		return batchname;
+	}
+	public void setBatchname(String batchname) {
+		this.batchname = batchname;
+	}
 	
-
+	public String toString() {
+		return this.getStudentid()+" "+this.getFirstname()+" "+this.getLastname()+" "+this.getGender()
+		+" "+this.getBatchid()+" "+this.getPaymentstatus()
+		+" "+this.getBatchname();
+	}
+	
 }
