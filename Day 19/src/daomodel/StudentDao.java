@@ -6,5 +6,7 @@ public interface StudentDao {
 
 	List<Student>getAllStudents();
 	public void addStudent(Student student);
+	
 	public void batchStrength();
+	public void getBatches();
 }

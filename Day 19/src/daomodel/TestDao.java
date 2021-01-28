@@ -26,6 +26,11 @@ public class TestDao {
 		//batch strength
 		studentdao.batchStrength();
 		
+		//batch paid
+		String status="notpaid";
+		System.out.println("batches with students to be paid");
+		studentdao.getBatches();
+		
 		
 		//batch
 		BatchDao batchdao = new BatchDaoImpl();

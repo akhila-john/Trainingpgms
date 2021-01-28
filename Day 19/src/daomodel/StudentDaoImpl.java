@@ -68,6 +68,24 @@ public class StudentDaoImpl implements StudentDao {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public void getBatches() {
+		String query = "Select batchname FROM student where paymentstatus ='notpaid'";
+	
+		try {
+			Connection conn = GetConnection.GetConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet res = stmt.executeQuery(query);
+			while(res.next()) {
+				String BatchName = res.getString("batchname");
+				System.out.println(BatchName);
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
 
 	
 	
