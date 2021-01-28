@@ -53,17 +53,17 @@ public class StudentDaoImpl implements StudentDao {
 	
 	
 	public void batchStrength() {
-		int count = 0;
+		int result = 0;
 		String query2 ="Select firstname from student where batchid=121";
 		try {
 			Connection conn = GetConnection.GetConnection();
 			Statement stmt = conn.createStatement();
 			ResultSet res = stmt.executeQuery(query2);
 			while(res.next()) {
-				count+=1;
+				result+=1;
 				res.getString("firstname");
 			}
-			System.out.println("strength of science batch is"+count);
+			System.out.println("strength of science batch is"+result);
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
