@@ -1,0 +1,67 @@
+A web service is a collection of open protocols and standards used for exchanging data between applications or systems. Software applications written in various programming languages and running on various platforms can use web services to exchange data over computer networks like the Internet in a manner similar to inter-process communication on a single computer. This interoperability (e.g., between Java and Python, or Windows and Linux applications) is due to the use of open standards.
+
+The basic web services platform is XML + HTTP. All the standard web services work using the following components -
+
+SOAP (Simple Object Access Protocol)
+
+UDDI (Universal Description, Discovery and Integration)
+
+WSDL (Web Services Description Language)
+
+WORKING OF WEB SERVICES
+
+A web service enables communication among various applications by using open standards such as HTML, XML, WSDL, and SOAP. A web service takes the help of -
+
+XML to tag the data
+
+SOAP to transfer a message
+
+WSDL to describe the availability of service.
+
+You can build a Java-based web service on Solaris that is accessible from your Visual Basic program that runs on Windows.
+
+You can also use C# to build new web services on Windows that can be invoked from your web application that is based on JavaServer Pages (JSP) and runs on Linux.
+
+Example
+Consider a simple account-management and order processing system. The accounting personnel use a client application built with Visual Basic or JSP to create new accounts and enter new customer orders.
+
+The processing logic for this system is written in Java and resides on a Solaris machine, which also interacts with a database to store information.
+
+The steps to perform this operation are as follows -
+
+The client program bundles the account registration information into a SOAP message.
+
+This SOAP message is sent to the web service as the body of an HTTP POST request.
+
+The web service unpacks the SOAP request and converts it into a command that the application can understand.
+
+The application processes the information as required and responds with a new unique account number for that customer.
+
+Next, the web service packages the response into another SOAP message, which it sends back to the client program in response to its HTTP request.
+
+The client program unpacks the SOAP message to obtain the results of the account registration process.
+
+
+
+
+TYPES  OF  WEB  SERVICES
+
+RESTful Web Services :
+REST stands for REpresentational State Transfer. It is developed by Roy Thomas Fielding who also developed HTTP. The main goal of RESTful web services is to make web services more effective. RESTful web services try to define services using the different concepts that are already present in HTTP. REST is an architectural approach, not a protocol.
+
+It does not define the standard message exchange format. We can build REST services with both XML and JSON. JSON is more popular format with REST. The key abstraction is a resource in REST. A resource can be anything. It can be accessed through a Uniform Resource Identifier (URI).
+
+
+SOAP Web  Services :
+REST defines an architectural approach whereas SOAP poses a restriction on the format of the XML. XML transfer data between the service provider and service consumer. Remember that SOAP and REST are not comparable.
+
+SOAP: SOAP acronym for Simple Object Access Protocol. It defines the standard XML format. It also defines the way of building web services. We use Web Service Definition Language (WSDL) to define the format of request XML and the response XML.
+
+For example, we have requested to access the Todo application from the Facebook application. The Facebook application sends an XML request to the Todo application. Todo application processes the request and generates the XML response and sends back to the Facebook application.
+
+
+
+
+
+
+

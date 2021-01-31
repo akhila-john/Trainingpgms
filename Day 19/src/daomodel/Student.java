@@ -7,7 +7,7 @@ public class Student {
 	private String lastname;
 	private String gender;
 	private int batchid;
-    private String paymentstatus;
+    
 	private String batchname;
 	
 	
@@ -43,12 +43,7 @@ public class Student {
 		this.batchid = batchid;
 	}
 	
-	public String getPaymentstatus() {
-		return paymentstatus;
-	}
-	public void setPaymentstatus(String paymentstatus) {
-		this.paymentstatus = paymentstatus;
-	}
+	
 	public String getBatchname() {
 		return batchname;
 	}
@@ -58,7 +53,7 @@ public class Student {
 	
 	public String toString() {
 		return this.getStudentid()+" "+this.getFirstname()+" "+this.getLastname()+" "+this.getGender()
-		+" "+this.getBatchid()+" "+this.getPaymentstatus()
+		+" "+this.getBatchid()
 		+" "+this.getBatchname();
 	}
 	

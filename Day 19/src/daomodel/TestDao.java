@@ -11,11 +11,11 @@ public class TestDao {
 		StudentDao studentdao = new StudentDaoImpl();
 		BatchDao batchdao = new BatchDaoImpl();
 		TeacherDao teacherdao = new TeacherDaoImpl();
-
+        FeeDao feedao = new FeeDaoImpl();
 		Scanner sc = new Scanner(System.in);
 		String repeat;
 		System.out.println("enter your choice");
-		System.out.println("1.student details"+"\n"+"2.batch strength"+"\n"+"3.batch paid"+"\n"+"4.teacher details"+"\n"+"5.batch details");
+		System.out.println("1.student details"+"\n"+"2.batch strength"+"\n"+"3.batch paid"+"\n"+"4.fee details"+"\n"+"5.teacher details"+"\n"+"6.Batch details");
 		int c = sc.nextInt();
 		do {
 		switch(c) {
@@ -40,13 +40,25 @@ public class TestDao {
 		System.out.println("enter the batchid");
 		int batchid = sc.nextInt();
 		ss.setBatchid(batchid);
-		System.out.println("enter the paymentstatus");
-		String paymentstatus = sc.next();
-	    ss.setPaymentstatus(paymentstatus);
+		
 	    System.out.println("eneter the batchname");
 	    String batchname = sc.next();
 		ss.setBatchname(batchname);
-		studentdao.addStudent(ss);
+		//studentdao.addStudent(ss);
+		Fee ff = new Fee();
+		System.out.println("enter the paymentid");
+		int id2 = sc.nextInt();
+		ff.setPaymentid(id2);
+		System.out.println("enter the studentid");
+		int id3 = sc.nextInt();
+		ff.setStudentid(id3);
+		System.out.println("enter the batchname");
+		String course = sc.next();
+		ff.setBatchname(course);
+		System.out.println("enter the payment status");
+		String status1 = sc.next();
+		ff.setPaymentstatus(status1);
+		studentdao.addStudent(ss,ff);
 		break;
 		
 		case 2:
@@ -57,11 +69,27 @@ public class TestDao {
 		case 3:
 		String status="notpaid";
 		System.out.println("batches with students to be paid");
-		studentdao.getBatches();
+		feedao.getBatches();
 		break;
 		
-		//teacher
 		case 4:
+			Fee f = new Fee();
+			System.out.println("enter the paymentid");
+			int id4 = sc.nextInt();
+			f.setPaymentid(id4);
+			System.out.println("enter the studentid");
+			int id5 = sc.nextInt();
+			f.setStudentid(id5);
+			System.out.println("enter the batchname");
+			String course1 = sc.next();
+			f.setBatchname(course1);
+			System.out.println("enter the payment status");
+			String status2 = sc.next();
+			f.setPaymentstatus(status2);
+			feedao.addFee(f);
+			break;
+		//teacher
+		case 5:
 		for(Teacher teacher:teacherdao.getAllTeachers()) {
 		System.out.println(teacher);
 		}
@@ -84,7 +112,7 @@ public class TestDao {
 		teacherdao.addTeacher(tt);
         break;
         
-		case 5:
+		case 6:
 			for(Batch batch:batchdao.getAllBatches()) {
 				System.out.println(batch);
 			}
