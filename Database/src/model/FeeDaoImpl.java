@@ -16,10 +16,12 @@ public class FeeDaoImpl implements FeeDao {
 	
 public List<Fee>getAllFees(){
 		
+	Connection conn = GetConnection.GetConnection();
+	
 		List<Fee>fee = new ArrayList<Fee>();
 		String query ="SELECT * FROM fee_details";
 		try {
-			Connection conn = GetConnection.GetConnection();
+			
 			Statement stmt = conn.createStatement();
 			ResultSet res = stmt.executeQuery(query);
 			while(res.next()) {

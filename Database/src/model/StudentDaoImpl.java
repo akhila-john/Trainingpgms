@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,13 +10,15 @@ import java.util.List;
 
 public class StudentDaoImpl implements StudentDao {
 
+	Connection conn = GetConnection.GetConnection();
+	
 	public List<Student> getAllStudents() {
 		List<Student>student = new ArrayList<Student>();
 		String query = "SELECT * FROM student";
 		try {
-			Connection conn = GetConnection.GetConnection();
-			Statement stmt = conn.createStatement();
-			ResultSet res = stmt.executeQuery(query);
+			
+			Statement stmt3 = conn.createStatement();
+			ResultSet res = stmt3.executeQuery(query);
 			while(res.next()) {
 				Student std = new Student();
 				std.setStudent_id(res.getInt("student_id"));
@@ -35,32 +38,43 @@ public class StudentDaoImpl implements StudentDao {
 		}
 	
 	
-	public void addStudent(Student student,Fee fee) {
-		
-		String query1 ="INSERT INTO student VALUES("+student.getStudent_id()+","+"'"+student.getFirst_name()+"'"+
-				","+"'"+student.getLast_name()+"'"+","+"'"+student.getBatch_id()+"'"+
-				","+"'"+student.getGender()+"'"+")";
-		
-		String query2 ="INSERT INTO fee_details VALUES("+fee.getPayment_id()+","+"'"+fee.getStudent_id()+"'"+","+"'"+
-			      fee.getPayment_amount()+"'"+","+"'"+fee.getPayment_status()+"'"+")";
+	public void addStudent(Student student,Fee fee) throws SQLException  {
 		
 		try {
-			Connection conn = GetConnection.GetConnection();
-			Statement stmt = conn.createStatement();
-			stmt.executeUpdate(query1);
+			//(Connection conn = GetConnection.GetConnection())
+			conn.setAutoCommit(false);
 			
-			stmt.executeUpdate(query2);
-			System.out.println("inserted successfully");
-			}catch (SQLException e) {
-				e.printStackTrace();
+			String query1 ="INSERT INTO student VALUES("+student.getStudent_id()+","+"'"+student.getFirst_name()+"'"+
+					","+"'"+student.getLast_name()+"'"+","+"'"+student.getBatch_id()+"'"+
+					","+"'"+student.getGender()+"'"+")";
+			
+			String query2 ="INSERT INTO fee_details VALUES("+fee.getPayment_id()+","+"'"+fee.getStudent_id()+"'"+","+"'"+
+				      fee.getPayment_amount()+"'"+","+"'"+fee.getPayment_status()+"'"+")";
+		
+			try (Statement stmt = conn.createStatement()) {
+			
+			PreparedStatement stmt1 = conn.prepareStatement(query1 );
+			PreparedStatement stmt2 = conn.prepareStatement(query2);
+			stmt1.executeUpdate();
+			stmt2.executeUpdate();
+			conn.commit();
+			//System.out.println("inserted successfully");
+		}catch (SQLException e) {
+				conn.rollback();
+				throw e;
+			//e.printStackTrace();
 			}
+			
+		}catch (SQLException e1) {
+			e1.printStackTrace();
+		}
 		}
 	
 	public void batchStrength() {
 		int result = 0;
 		String query2 ="Select first_name from student where batch_id=100";
 		try {
-			Connection conn = GetConnection.GetConnection();
+			//Connection conn = GetConnection.GetConnection();
 			Statement stmt = conn.createStatement();
 			ResultSet res = stmt.executeQuery(query2);
 			while(res.next()) {
@@ -78,7 +92,7 @@ public class StudentDaoImpl implements StudentDao {
 		String query ="Select student.first_name,fee_details.payment_status,batch_details.batch_name from (student join fee_details on student.student_id = fee_details.student_id) join batch_details on student.batch_id=batch_details.batch_id where fee_details.payment_status='notpaid';";
 				
 		try {
-			Connection conn = GetConnection.GetConnection();
+			//Connection conn = GetConnection.GetConnection();
 			Statement stmt = conn.createStatement();
 			ResultSet res = stmt.executeQuery(query);
 			while(res.next()) {
@@ -89,11 +103,5 @@ public class StudentDaoImpl implements StudentDao {
 			e.printStackTrace();
 		}
 		
-		
-		
-		
-		
-		
-		
-	}
+		}
 }

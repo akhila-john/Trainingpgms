@@ -10,11 +10,13 @@ import java.util.List;
 
 public class TeacherDaoImpl implements TeacherDao{
 	
+	Connection conn = GetConnection.GetConnection();
+	
 	public List<Teacher>getAllTeachers(){
 		List<Teacher>teacher = new ArrayList<Teacher>();
 		String query="SELECT * FROM teacher";
 		try {
-			Connection conn = GetConnection.GetConnection();
+			
 			Statement stmt = conn.createStatement();
 			ResultSet res = stmt.executeQuery(query);
 			while(res.next()) {
@@ -40,7 +42,7 @@ public class TeacherDaoImpl implements TeacherDao{
 		String query1 = "INSERT INTO teacher VALUES("+teacher.getTeacher_id()+","+"'"+teacher.getName()+"'"
 		+","+"'"+teacher.getDesignation()+"'"+","+"'"+teacher.getBatch_id()+"'"+")";
 		try {
-			Connection conn = GetConnection.GetConnection();
+			
 			Statement stmt = conn.createStatement();
 			stmt.executeUpdate(query1);
 			System.out.println("inserted successfully");

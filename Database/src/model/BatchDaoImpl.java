@@ -10,12 +10,14 @@ import java.util.List;
 
 public class BatchDaoImpl implements BatchDao {
 
+	Connection conn = GetConnection.GetConnection();
+	
 public List<Batch>getAllBatches() {
 		
 		List<Batch>batch = new ArrayList<Batch>();
 		String query ="SELECT * FROM batch_details";
 		try {
-			Connection conn = GetConnection.GetConnection();
+			
 			Statement stmt = conn.createStatement();
 			ResultSet res = stmt.executeQuery(query);
 			while(res.next()) {
@@ -36,7 +38,7 @@ public void addBatch(Batch batch) {
 	String query ="INSERT INTO batch_details VALUES("+batch.getBatch_id()+","+"'"+batch.getBatch_name()+"'"+","+"'"+
       batch.getFee()+"'"+")";
 	try {
-		Connection conn = GetConnection.GetConnection();
+		
 		Statement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate(query);
 		System.out.println("inserted successfully");

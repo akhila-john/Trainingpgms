@@ -1,4 +1,4 @@
-package model;
+ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,6 +6,7 @@ import java.sql.DriverManager;
 public class GetConnection {
 
 	static Connection conn = null;
+	
 	private GetConnection()  {
 		
 	}
