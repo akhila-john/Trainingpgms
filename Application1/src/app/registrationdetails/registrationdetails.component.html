@@ -1,0 +1,84 @@
+
+<form [formGroup]="angForm" >
+  <div class="center">
+  <h1><b>Registration Form</b></h1>
+  </div>
+  <table align="center">
+      <tr>
+          <td>Name</td>
+          <td><input type="text" formControlName="name" ></td>  
+      </tr>  
+      <tr>
+          <td>Address</td>
+          <td><input type="text" formControlName="address" ></td>    
+      </tr>
+       <tr>
+          <td>Telephone Number</td>
+          <td>
+             <input type="number" formControlName="phone">
+          </td>
+      </tr>
+     <tr>
+          <td>
+              Email id
+          </td>
+          <td>
+            <input type="email"  formControlName="email">
+          </td>
+      </tr>
+      <tr>
+          <td>DOB</td>
+          <td><input type="date" formControlName="dob"></td>
+      </tr>
+      <tr>
+          <td>title</td>
+          <td> <select formControlName="title" >
+              <option value=""></option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Mis
+  
+  </select><br></td>
+      </tr>
+    </table>
+      <div class="format">
+      <input type="button" value="submit" [disabled]="angForm.invalid" (click)="submitdata()" >
+      </div>
+  
+  <!--for name  -->
+      <div *ngIf="angForm.controls['name'].invalid &&  angForm.controls['name'].touched">
+          <div *ngIf="angForm.controls['name'].errors.required">name is required.</div>
+          <div *ngIf="angForm.controls['name'].errors.minlength">name should be 3 character.</div>
+      </div>
+       <!--for address  -->
+       <div *ngIf="angForm.controls['address'].invalid &&  angForm.controls['address'].touched">
+        <div *ngIf="angForm.controls['address'].errors.required">address is required.</div>
+        <div *ngIf="angForm.controls['address'].errors.minlength">address should be 3 character.</div>
+    </div>
+     <!--for phone -->
+     <div *ngIf="angForm.controls['phone'].invalid &&  angForm.controls['phone'].touched">
+        <div *ngIf="angForm.controls['phone'].errors.required">phone is required.</div>
+        <div *ngIf="angForm.controls['phone'].errors.minlength">phone should be 10 character.</div>
+    </div>
+    <!--for email -->
+    <div *ngIf="angForm.controls['email'].invalid &&  angForm.controls['email'].touched">
+        <div *ngIf="angForm.controls['email'].errors.required">email is required.</div>
+        <div *ngIf="angForm.controls['email'].errors.email">provide valid email.</div>
+    </div>
+
+    <!--for dob -->
+    <div *ngIf="angForm.controls['dob'].invalid &&  angForm.controls['dob'].touched">
+        <div *ngIf="angForm.controls['dob'].errors.required">dob is required.</div>
+        <div *ngIf="angForm.controls['dob'].errors.pattern">dob valid details.</div>
+    </div>
+    
+    <!--for title -->
+    <div *ngIf="angForm.controls['title'].invalid &&  angForm.controls['dob'].touched">
+        <div *ngIf="angForm.controls['title'].errors.required">title is required.</div>
+        
+    </div>
+    <p>Form value: {{ angForm.value | json}}</p><br>
+    <p>Form status: {{ angForm.status | json}}</p><br>
+
+
+</form>

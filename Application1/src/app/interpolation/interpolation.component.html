@@ -1,0 +1,24 @@
+<p>interpolation works!</p>
+{{name}}<br>
+{{age}}<br>
+{{name1}}<br>
+{{age1}}<br>
+{{3+4}}<br>
+{{20-10}}<br>
+{{"Hello "+name}}<br>
+{{name.toUpperCase()}}<br>
+{{name2.toLowerCase()}}<br>
+{{hello()}}<br>
+{{months[4]}}<br>
+<h3>Property Binding</h3>
+<input type="button"  value="Submit"><br>
+<input type="button"  [value]="name"><br>
+<input type="button"  value= "{{name1}}"><br>
+<input type="button"  [value]="name" disabled><br>
+<input type="button"  [value]="name" [disabled]="isdisabled">
+<h3>Event Binding</h3>
+<input type="button"  value="cancel" (click)="cancel()">
+<h3>two way databinding</h3>
+<input type="text" [(ngModel)] = "name" [ngStyle]= "mycolor">
+<br>
+<input type="button" [value]= "name">

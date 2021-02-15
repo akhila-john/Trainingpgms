@@ -1,0 +1,16 @@
+<p>service works!</p>
+<table border="1">
+    <tr>
+        <td>Username</td>
+        <td>street</td>
+        <td>zipcode</td>
+        <td>lat</td>
+    </tr>
+    <tr *ngFor="let c of userdata">
+        <td>{{c.username}}</td>
+        <td>{{c.address.street}}</td>
+        <td>{{c.address.zipcode}}</td>
+        <td>{{c.address.geo.lat}}</td>
+
+    </tr>
+</table>

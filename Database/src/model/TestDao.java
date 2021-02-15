@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class TestDao {
 
-	public static void main(String[] args) throws SQLException  {
+	public static void main(String[] args)    {
 		
 		//student
 				StudentDao studentdao = new StudentDaoImpl();

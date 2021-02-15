@@ -27,6 +27,7 @@ public List<Batch>getAllBatches() {
 				b.setFee(res.getInt("fee"));
 				
 				batch.add(b);
+				conn.commit();
 			}
 			}catch (SQLException e) {
 			e.printStackTrace();
@@ -42,6 +43,7 @@ public void addBatch(Batch batch) {
 		Statement stmt = conn.prepareStatement(query);
 		stmt.executeUpdate(query);
 		System.out.println("inserted successfully");
+		conn.commit();
 	}catch (SQLException e) {
 		e.printStackTrace();
 	}

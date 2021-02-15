@@ -1,0 +1,41 @@
+<p>ngif works!</p>
+<div>
+    <span *ngIf="isavailable; else condition1">Condition is valid.</span>
+    <ng-template #condition1>
+        <table border="1">
+            <tr>      <td>ind</td>  </tr>
+            <tr><td>pak</td></tr>
+            <tr><td>sri</td></tr>
+        </table>
+        Condition is invalid Condition is invalidCondition is invalidCondition is invalid</ng-template>
+    </div>
+    <div>
+        <input type="button" value="Show" (click)="showcontent()">
+        
+    </div>
+    <div>
+        <span *ngIf="isavailables; else condition2">HTML</span>
+        <ng-template #condition2>
+           <p>HTML is a standard markup language for documents designed to be displayed in a web broswer.</p> 
+            </ng-template>
+        </div>
+        <div>
+            
+            <input type="image" src="assets\images\img2.jpeg" (click)="clickFunction()"  width="48" height="48">
+            
+        </div>
+
+        <div>
+            <span *ngIf="isavailable1; else condition3">JAVA</span>
+            <ng-template #condition3>
+               <p>Java is a class-based,object-oriented programming designed to have few implementation<br>
+                dependencies.</p> 
+                </ng-template>
+            </div>
+            <div>
+                
+                
+                <input type="image" src="assets\images\img3.jpeg" (click)="clickOnFunction()"  width="48" height="48">
+            </div>
+   
+   

@@ -32,6 +32,7 @@ public List<Fee>getAllFees(){
 				f.setPayment_status(res.getString("payment_status"));
 				
                 fee.add(f);
+                conn.commit();
 			}
 			}catch (SQLException e) {
 			e.printStackTrace();

@@ -1,0 +1,15 @@
+
+<p>edit-customer-details works!</p>
+<table>
+    <tr><td>Name</td> 
+        <td><input type="text" [(ngModel)]="customerdata.name"></td></tr> 
+    
+    <tr><td>Phone</td> 
+        <td><input type="text" [(ngModel)]="customerdata.phone"></td></tr>
+    <tr><td>Email</td> 
+        <td><input type="text" [(ngModel)]="customerdata.email"></td></tr>
+    <tr>
+        <td></td>
+        <td><input type="button" value="update" (click)="updatecustomerdata()"></td> 
+    </tr>
+</table>

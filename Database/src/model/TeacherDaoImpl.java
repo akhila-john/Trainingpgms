@@ -25,9 +25,8 @@ public class TeacherDaoImpl implements TeacherDao{
 				tr.setName(res.getString("name"));
 				tr.setDesignation(res.getString("designation"));
 				tr.setBatch_id(res.getInt("batch_id"));
-				
-				
 				teacher.add(tr);
+				conn.commit();
 			}
 			
 			
@@ -46,6 +45,7 @@ public class TeacherDaoImpl implements TeacherDao{
 			Statement stmt = conn.createStatement();
 			stmt.executeUpdate(query1);
 			System.out.println("inserted successfully");
+			conn.commit();
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}

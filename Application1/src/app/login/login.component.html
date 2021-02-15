@@ -1,0 +1,26 @@
+<p>login works!</p>
+
+<div>
+    <span *ngIf="isavailable;then condition1 else condition2">Tiger</span>
+<ng-template #condition1>
+    <app-home></app-home>
+</ng-template>
+<ng-template #condition2>
+    <table>
+        <tr>
+            <td>
+                <input type="text" [(ngModel)]="username" placeholder="Enter Username">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="password" [(ngModel)]="password" placeholder="Enter Passowrd">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="button" value="login" (click)="login()">
+            </td>
+        </tr>
+    </table>
+</ng-template>

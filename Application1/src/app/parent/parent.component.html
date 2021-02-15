@@ -1,0 +1,6 @@
+<p>parent works!</p>
+<br>
+{{valuefromchild}}
+<br>
+***************child component***************************
+<app-child [childvalue]="valuetochild" [b]="a" (myoutputvalue)="receivevaluefromchild( $event)"> </app-child>

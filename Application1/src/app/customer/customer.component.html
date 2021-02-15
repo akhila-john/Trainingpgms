@@ -1,0 +1,52 @@
+
+<p>customer works</p>
+<table align="center">
+    <tr>
+        <td>Name</td>
+        <td><input type="text" [(ngModel)]="obj_c.name"></td>  
+    </tr>  
+    <tr>
+        <td>Telephone Number</td>
+        <td>
+           <input type="number" [(ngModel)]="obj_c.phone">
+        </td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><input type="email" [(ngModel)]="obj_c.email"></td>    
+    </tr>
+    <tr>
+        <td>
+            <input type="button" value="Save" (click)="SaveCustomerdata()">
+        </td>
+        
+    </tr>
+</table>
+
+
+<table border="1">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Delete</th>
+        <th>Edit</th>
+        
+    </tr>
+    <tr *ngFor="let p of customerdata ">
+        <td>{{p.id}}</td>
+        <td>{{p.name}}</td>
+        <td>{{p.phone}}</td>
+        <td>{{p.email}}</td>
+        
+        <td>
+            <input type="button" value="Delete" (click) ="deletecustomerdetails(p.id)">
+        </td>
+        <td>
+            <input type="button" value="Edit" (click) = "loadnewcomponent(p.id)">
+        </td>
+    </tr>
+    
+
+</table>
