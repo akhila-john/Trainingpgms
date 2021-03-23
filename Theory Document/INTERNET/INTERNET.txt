@@ -1,0 +1,115 @@
+                       INTERNET
+
+=> it is a wire .two computers connected to the wire can communicate each other.
+=> A server is a special computer connected directly to the internet and webpage is the file outside its drive.
+
+=> Every server has a unique IP address.It helps computers find each other.
+   Ex : google.com-- 72.14.205.100
+        facebook.com -- 69.63.176.140
+   for easiness we use domian names as google, facebook etc..rather than their IP address.
+
+=> The computer used by the user is the client (not server)as they are not directly conected to the internet.
+=> The client is connected indirectly to the internet through Intenet Service Provider.
+   Servers are computers that store webpages, sites etc
+   when a client wants to access a webpage, a copy of the webpage is downloaded from the servr onto the client machine to be displayed in the users web browser.
+
+===>>> If we want to visit a yahoo.com, which is both the server and ISP,the user goes through the ISP to internet and looks for yahoo.com.  
+       The user computer connects to yahoo.com and can access its webpages.
+       Suppose the user wants to send mailto the usr1,
+       the user logins to the mail account and compose the messgaeto user1 mailid andthe message is sendto the user1mail.
+       when the user1 dials into her accout,gets the message.
+=> When an email or image travels accross the internet, the computer breaks the information into smmaler pieces called packets.
+   when the packets reaches the destination, they are reassembled to original order.
+
+=> Everything connected directly or indirectly to the internet will have an IP address.
+=> Anywhere two or more parts of the internet intersects, there is a ROUTER.
+   Router directs the packet so that they are one step closer to the destination.
+
+
+                        HOW INTERNET WORKS
+
+=> Data is accessed from the data centre to our device using optical fiber cable.                              [datacenter-->server-->ssd]
+=> everything is stored in the ssd within the datacenter.the ssd acts as the internal memory of the server.
+   Server is the powerful computer that provides the stored content when requested.
+=> everythn connected to the internet whether a computer or server or mobile is identified using an IP address.
+   IP adress acts as the address through which all the information reaches the destination. The ISP of our system decides the IP address.
+=> The server in the datacenter also have an IP address.The server stores the website and through the IP address or domain name can access the website.
+
+=> To access the internet we mainly uses the domian names.
+   The internet gets the IP address corresponding to the domain name from the DOMAIN NAME SYSTEM [DNS].
+   The ISP can manage the DNS.
+
+=> When we enters the domain name (facebook.com),the browser sends a request to the DNS server to get the corresponding IP address.
+=> After getting the IP address, the browser forwards the request to the datacenter i.e to the respective server.
+   Once the server gets request to accesss to the specific website, the data flow starts.
+   The data flows in digital format via optical fibercables (as light pulses) . These light pulses travels via fiber cables through miles,underwater, terrains etc
+   and finally reaches to the router of the destination (home routers).
+   The routers converts these light signals to electrical signals which is passed to the laptops etc..
+    If using cellular data(mobile), the signal from fiber cable goes to the cell tower from where the signal reaches the cellphones in the form of electromagnetic waves.
+=> The datas are transmitted as 0s AND 1s in the form of packets by the server
+   Ech of the packet contains IP address and sequence numbers.
+   These packets takes best available router routes and when the packets reaches the destination (mobile), they are reassembled to original order.
+
+
+** These ip address assignment , domain name registration etc is all managed by the institution called ICANN[Interet Corporation For Assigned Names And Numbers] in USA.
+
+           HOW WEBSERVER WORKS
+
+=> The browser goes to the DNS server, and finds the real address of the server that the website lives on .
+=> The browser sends an HTTP request message to the server, asking it to send a copy of the website to the client .
+   This message, and all other data sent between the client and the server, is sent across your internet connection using TCP/IP.
+=> If the server approves the client's request, the server sends the client a "200 OK" message,  and then starts sending the website's files
+   to the browser as a series of small chunks called data packets .
+=> The browser assembles the small chunks into a complete web page and displays it to you.
+
+
+           WEBPAGE
+=> A document which can be displayed in a web browser such as Firefox, Google Chrome, Opera, Microsoft Internet Explorer or Edge, or Apple's Safari. 
+   These are also often called just "pages."
+
+           WEBSITE
+=> A collection of web pages which are grouped together and usually connected together in various ways. Often called a "web site" or a "site."
+          
+      WEBSERVER
+=> A web server is a computer hosting one or more websites. 
+  "Hosting" means that all the web pages and their supporting files are available on that computer. 
+   The web server will send any web page from the website it is hosting to any user's browser, per user request.
+
+   SEARCH ENGINE
+=> Search engines are a common source of confusion on the web. A search engine is a special kind of website that helps users find web pages from other websites.
+   eX: google, etc..
+
+   BROWSERS
+=> the first time someone launches a browser, the browser displays a search engine's homepage. 
+   EX : mozilla, googlechrome etc..
+
+           DOMAIN NAMES
+
+=>     developer.mozilla.org
+          |         |      |
+         label2   label1  TLD
+
+ * TLDs:-  tell users the general purpose of the service behind the domain name. The most generic TLDs (.com, .org, .net).
+           Local TLDs such as .us, .fr, or .se can require the service to be provided in a given language or hosted in a certain country
+           TLDs containing .gov are only allowed to be used by government departments.
+           The .edu TLD is only for use by educational and academic institutions.
+ * label:-  A label is a case-insensitive character sequence anywhere from one to sixty-three characters in length, containing only the 
+           letters A through Z, digits 0 through 9.
+           A domain name can have many labels.
+
+   How it Works
+=> Type mozilla.org in your browser's location bar.
+   Your browser asks your computer if it already recognizes the IP address identified by this domain name (using a local DNS cache). If it does, the name is translated to the IP address and the browser negotiates contents with the web server. End of story.
+   If your computer does not know which IP is behind the mozilla.org name, it goes on to ask a DNS server, whose job is precisely to tell your computer which IP address matches each registered domain name.
+   Now that the computer knows the requested IP address, your browser can negotiate contents with the web server.
+
+
+
+
+
+
+
+
+
+
+

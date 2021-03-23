@@ -1,0 +1,16 @@
+<p>batch-details works!</p>
+<table border="1">
+    <tr>
+        <th>batch_id</th>
+        <th>batchname</th>
+        <th>fee</th>
+        
+    </tr>
+
+    <tr *ngFor="let c of batch">
+        <td>{{c.batch_id}}</td>
+        <td>{{c.batchname}}</td>
+        <td>{{c.fee}}</td>
+        
+    </tr>
+</table>

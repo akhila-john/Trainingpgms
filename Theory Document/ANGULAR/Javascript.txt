@@ -1,0 +1,157 @@
+                                                                JAVASCRIPT
+
+* everything is given in <script></script> tag.
+* document.write () => used to write a string to the html dcument.( to print )
+   Ex :  <html>
+           <head>
+            <body>
+             <script>
+                 document.write("helo world")
+             </script>
+        </body>
+        </head>
+        </html>
+
+
+* case-sensitive
+* can or cannot have semicolons at the end.
+* if the script tag (javascript code) is given in the head tag, the the function is to be called in the body .
+
+
+
+* Declaring a variable
+         var myName ="ram"; //var used throughout
+          myName =8;   // type can also be changed
+
+         const pi =3.14;  // can never change the value
+
+* Assigning variable                                                                                 
+
+            var a;                                                                                      
+
+            var b = 2;                                                                                
+
+            console.log(a) => null                                                                   
+
+            a = 7;                                                                                   
+            b = a; 
+           console.log(a) => 7
+
+
+* console.log() //displays in the console
+
+* .length //to get the length 
+
+* push //add elements
+
+*  pop // remove the last element
+
+*  shift // shifts last element
+
+* inner html : used to set or get the html content.
+* getElementById()  : method used to return the element that has id attribute with specified value.
+                      id should be unique.
+                      id is used to uniquely identify an html element within the documnt.
+
+* unInitializing
+          var a = 2;
+          var b = 3;
+          var c = "i am a";
+          a=a+1;
+          b=b+5;
+          c=c+"string";
+
+           
+* its case-sensitive (camel casing)
+
+
+* Arithmeic Operations (as normal only)
+        var sum = 2+3;
+        console.log(sum) => 5
+
+
+
+* Declaring String literals
+        var firstname ="tom";
+        var lastname = "babu";
+
+
+* Arrays
+     var ourArray = ["john", 21]; //can be any dataype..separated by commas..
+     var myArray = [["universe",2], ["here", 4]];  // nested array
+    
+
+* String immutability (creation ofnew string does not affect the existing one, only new ones created)
+       var myStr = "Jello World";
+      /// myStr[0] = "H";      //this will shows error as H cannot be replaced with J dueto string immutability
+       myStr = "Hello World";    //correct one
+
+
+
+* var firstname = "mary"
+  var len = firstname.length();  => 4
+  var len = firstname.length[0]; => m
+
+
+
+* Push and Pop
+       var emp= ["akhu","alee","amalu"]
+              emp.push("jithin")  //add elements at the end
+              emp.push("rahul")
+              console.log(emp)      => ["akhu","alee","amalu","jithin","rahul"]
+              // removes element at the end
+              emp.pop()
+              //emp.pop()
+              console.log(emp)  => ["akhu","alee","amalu","jithin"]
+
+
+
+* Functions
+      <script>
+      function <functionname>(parameter list) {
+         statements;
+          }
+      </script>
+     
+     <functionname>();  // function is to be called in the body.
+
+   Ex :  <html>
+            <head>
+              <script>
+                   function sayHello() {
+                       document.write("hello world");
+                 
+                 }                                  
+              </script>
+            <body>
+                  <button onclick ="sayHello()">Print</button>
+            </body>
+    </head>
+</html>
+
+
+
+* Object Creation
+
+      ##     key-value pairs
+          
+         ex: var emp ={ id: 101,name:"john", age: 40}
+
+      ##  var stud = new Object();
+          stud.id =102;
+          stud.name="akhila"
+          stud.age=22;
+          document.write(JSON.stringify(stud)) // Converts Javascript value to JSON String
+
+
+
+
+
+
+
+
+
+
+
+
+

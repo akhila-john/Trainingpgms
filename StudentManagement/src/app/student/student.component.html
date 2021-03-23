@@ -1,0 +1,59 @@
+
+<h2>Student List</h2>
+
+<table  align="center">
+    <tr>
+        <td>student_id</td>
+        <td><input type="number" [(ngModel)]= "obj_s.student_id"></td>
+    </tr>
+    <tr>
+        <td>first_name</td>
+        <td><input type="text" [(ngModel)]= "obj_s.first_name"></td>
+    </tr>
+    <tr>
+        <td>last_name</td>
+        <td><input type="text" [(ngModel)]= "obj_s.last_name"></td>
+    </tr>
+    <tr>
+        <td>batch_id</td>
+        <td><input type="number" [(ngModel)]= "obj_s.batch_id"></td>
+    </tr>
+    <tr>
+        <td>gender</td>
+        <td><input type="text" [(ngModel)]= "obj_s.gender"></td>
+    </tr>
+    <tr>
+        
+        <td><input type="button" value="save" (click)="SaveCustomerdata()"></td>
+    </tr>
+
+</table>
+<table border="1">
+    <tr>
+        <td>student_id</td>
+        <td>first_name</td>
+        <td>last_name</td>
+        <td>batch_id</td>
+        <td>gender</td>
+        
+       
+ </tr>
+    <tr *ngFor="let c of userdata">
+        <td>{{c.student_id}}</td>
+        <td>{{c.first_name}}</td>
+        <td>{{c.last_name}}</td>
+        <td>{{c.batch_id}}</td>
+        <td>{{c.gender}}</td>
+        <td>
+            <input type ="button" value="Delete" (click)="deletecustomerdetails(c.student_id)">
+        </td>
+        
+        <td>
+            <input type ="button" value="viewdetails" (click)="studentdetails(c.student_id)">
+        </td>
+
+        <td>
+            <input type="button" value="Edit" (click)="loadnewcomponent">
+        </td>
+    </tr>
+</table>

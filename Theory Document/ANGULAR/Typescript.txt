@@ -1,0 +1,43 @@
+
+* Open-source programming language from microsoft.
+* Typed superset of javascript.(contains additional in typescript)
+* compiles down to plain javscript.
+
+* it is the extended javascript. (.js to .ts can be extended)
+*  catch the errors : adds type support to javascript as a result errors are  identified as typing the code and during compile time also.
+* IDE support 
+* intellisence support
+
+* to install typescript =>npm install -g typescript
+* compile => tsc <name>
+* run => node <name>
+
+
+** When we compile the typescript file, it creates  .js file which contains the transpiled
+   code.
+
+** whenever an application is build,the typescript compiler transpiles to javascript so that the browser can undrstand.
+
+* Conerting typescript to javascript is called TRANSPILING.
+
+* cannot change the type in typescript . ex: let count= 5;
+                                             count = 'a'; // it shows error as count type is number
+* Typescript compiler reports error but still generates valid javascript code.
+  It can be given as : let a;  //here type is any
+                      a= 5;
+                      a= true;
+                      a = 'sam';
+
+* arrow functions:
+    > let log = function(message) {                       // in javascript function
+          console.log(message);
+       }
+
+    > let log = (mesage) => console.log(message)   // arrow function in typescript
+
+* diferent types  are :
+ > let a : number;
+ > let a : boolean;
+ > let a : string;
+ > let a : any;
+ > let a : number[] = [1, 2, 3];

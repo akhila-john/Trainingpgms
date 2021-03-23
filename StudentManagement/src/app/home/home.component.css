@@ -1,0 +1,14 @@
+.parent{
+    align-content: center;
+    text-align: center;
+   
+}
+
+.container {
+
+   align-content: center;
+   text-align: center;
+   justify-content: center;
+   
+    font-style: italic;
+}

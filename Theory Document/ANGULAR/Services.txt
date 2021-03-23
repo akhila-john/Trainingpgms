@@ -1,0 +1,40 @@
+SERVICE
+
+* singleton 
+* services interact with API.
+* fetching data from some other server.
+* injected into aplication using dependency injection mechanism.
+* need to create and inject services in components where we want to use them.
+
+* @injectbale decorator informs angular that we can inject into components.
+
+
+* create service using ng g s <name>.
+* to interact with Http url, shld create HTTP client.So import httpclientmodle and also add to import array so that it is accesicble in appmodule.
+* service creted is given in the providers.
+* declare httpclient as dependency in constructor . alsoimport httpclient to service class.
+*  provides get method where get takes in url.
+* cast the response to an array : get returns observable.[HTTP module uses observables to handle requests and responses].
+                                  so it must be converted to atype usab;e in the aplication
+         > create an interface and the add the variables so that it creates a type where the observable can cast to.
+         > give observable type in get method in the service class and also import in the service class.
+* Data gets provided only when subscribe is given.
+  > first argument in the subscribe is the data received from the observable to the local property.
+
+
+* The service makes request to the database with the http methods (get).
+* As a response will get back the observables.
+     
+
+* We sends http request and gets http response to from the SERVER.
+*The server at the end serves as the API (rest api).
+* That code (rest api) interacts with thw databse => angular.
+* Depends on the url (api) interacting with.
+
+    HTTP Request structure
+**  Http Verb           => POST, GET,PUT etc..
+**  URL (API Endpoint)  => /posts/1
+**  Headers(Metadata)   => { "contents-type":"application/json"}
+**  Body                => { title:" new post"}
+
+

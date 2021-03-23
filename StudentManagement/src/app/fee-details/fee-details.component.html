@@ -1,0 +1,13 @@
+<p>fee-details works!</p>
+<table border="1">
+    <tr>
+        <th>payment_id</th>
+        <th>student_id</th>
+        <th>payment_status</th>
+        
+    </tr>
+
+    <tr *ngFor="let f of fee">
+        <td>{{f.payment_id}}</td>
+        <td>{{f.student_id}}</td>
+        <td>{{f.payment_status}}</td>

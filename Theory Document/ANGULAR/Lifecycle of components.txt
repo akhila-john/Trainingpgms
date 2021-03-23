@@ -1,0 +1,53 @@
+
+
+
+** ngOnChanges - can execute multiple times.
+                 called after a bound input property changes.
+                 [i.e property decorated with @input decorator,when these property receives new value]
+                 it receives n argument ex: ngOnChanges(changes: Simple Changes) {
+                                               console.log('changes called')
+                                               console.log(changes)
+                                              }
+** ngOnInit   - called once the component is initialized.
+
+**ngDoCheck  - runs multiple times
+               called during every change detection run.
+               Change detection means in angular whether needed to change smthng in the template (some property values etc.).
+               execuete on every chck angular makes.
+               also checks while trigerring an event, ex: during a button click etc.
+
+** ngAfterContentInit - called after content (ng-content) has been projected into view.
+                       the view of the parent component gets added to user componentsthrough ng content.
+
+
+** ngAfterContentChecked - called every time the projected content has been checked.
+                           happens whenever change detection has checked.
+
+** ngAfterViewInit - called after the comonents view (and childs view) has been initialized.
+                     called once the component view is completed.
+                     calls after the content is checked.
+
+** ngAfterViewCheck - called every time the view(and child view) have been checked.
+                      view hasbeen checked --changes made are displayed on the component etc.
+                      calls after once the content is checked.
+
+** ngOnDestroy - called once the component is about to be destroyed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

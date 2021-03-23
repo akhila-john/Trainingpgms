@@ -1,0 +1,208 @@
+                                                                         ANGULAR
+
+Jvascript Framework
+Completely written in Typescript
+Typescript convertedto javascript => Transpiling
+primaril aimed to develop single page applications
+
+bootstrap : for css styling
+            comand used => npn install --save bootstrap@3 // downloads bootstrap in node module 
+            also add path "node_modules/bootstrap/dist/css/bootstrap.min.css" in "styles" in angular.json file of studio editor.
+
+assets  : contains images, icons etc needed for the application.
+main.ts : it is the main file --typescript file--where the aplication starts
+          bootstrapping the main module (AppModule).
+
+package.json : contains all package to run the angular applications.tells which libraries 
+               will be installed when you run npm install.
+angular.json : contains assets, styles ,project name, version of cli etc..
+tsconfig.json :settings for typescript compiler--based on these setting typescript compiler compiles the code to javascript which browsers can understand.
+tslint.json : staticanalysis tool for typescript code.
+style.css : provides global styling
+node_ modules : stores thirdparty libraries , deploys in application during compiling.
+
+
+
+src/ : main folder ...It contains : modulesand component
+   app.module.ts :  Main Module
+                    It has reference to different libraries, which are imported.They are 
+                    imported and saved into variablessuch as declarations, imports, providers, bootstrap.
+
+
+             MODULES
+** Module in angular is a place where we can group the components, directives, pipes and services.Headers ,footers also part of the module.
+   To define a module we use ngmodule.
+
+** The basic building blocks of the anglar framework are angular components that are organzed into NgModules.
+** an angualar app is defined by aset of NgModules.
+** An app always have a rootmodule that enables bootstrapping 
+
+   @NgModule has object with following properties :-
+         Declarations : Array of components created.If any new component gets created, it will be imported first and the referncewill be included in the declarations.
+                        App component is the default component stored.
+         Imports      : array of  modules imported. (browser module, forms module)
+         Providers    : It has the reference to the services created.
+         Bootstrap    : tells which component to be loaded when the application starts.
+                        It hasreference to the default component creataed => appcomponent.
+                        includes the main app component for starting the execution.
+
+      
+          COMPONENT
+
+** Each component defines a class that contains application data and logic.
+
+A Component has selector, template, style.
+The @component() decoator identifies the class below it as a component and provides the template.
+selector : assigns string as a value [app root]. 
+template : defines a view to be displayed (html template)
+styleurls : .css file
+
+** ngOnInit() : is a lifecycle hook. Angular calls it shortly after creating a component.placeto give initialization logic.
+                 performs complex initializations outside the constructor.
+                shld not fetch data in the component constructor.
+                place for component to fetch the initial data.
+ 
+
+   app.component.css : It contains the css 
+
+   app.component.html : html contents
+
+   app.component.spec.ts : automatically generated files which contains unit test for source component.
+
+   app.component.ts : The class for the component is defined in .ts file.
+                      processing of html structure in .ts file.
+                      It includes activities such as connecting to the database, interacting with other components, routing, services etc..
+                      It contains a selector <app-root></app-root>(inside body of index.html) which displays the details from app.component.html file.
+  
+   app-routing.module.ts : it contains the routing required for the project. it isconnected with the main module =>app.module.ts.(path and imports).
+
+
+
+                           
+main.ts : It is the file from where the project development starts.
+          It starts with importing the basic module needed.
+
+
+* When ng serve is given,angular/cli calls the typescript compiler to transpile all the typescript code.
+
+* whenever hits the ng serve,it will create javascript bundles (polyfills,styles,main,inline) and automatically adds the right imports to the html file.
+* The execution starts at main.ts which bootstraps the angular application and passes the module (appcomponent) as the argument
+*  The index.html contains a root tag <app-root></app-root> which has a refernce in the main.ts.
+*  So index.html  internally refers to ma
+*  When AppModule is called , it calls app.module.ts which further calls the AppComponent based on the bootstrap.
+*  In app.component.ts, there is a selector:  which is in the index.html file.
+             The @component calls the template url called.html file and gets thecontent.
+*  Finally dislayed inthe browser.
+
+   
+
+    
+sub component can be created by :ng g c <main component name>/<new sub component name>
+ng serve : command that builds the application and starts the web server.
+ng generate component <name> : to create a component
+ng generate interface : to create a interface
+ng g directive <directivename> : used to create custom directives.
+
+
+Interpolation :comunicates variables, objects, arrays etc.. from the component class (.ts) to template(html).
+               displays component in doubly curly braces.
+               bind a value in UI element
+               ex : {{name}} //displays the name given in .ts file
+
+Property Binding : dynamically bind the value.
+                   When wewant to usete component class to control the value.(value is passedfrom component to the value)
+                   ex: <input type ="button" value ="submit">
+                   ex: <input type ="button" [value]="name"> //to bind the elements property, enclose in [] bracjets.
+
+Event Binding : used to handle the events raisedby the user actions like button click..etc
+                ex : <input type ="button" value ="cancel" (click) ="cancel()"> //cancel() is the method given inside .ts class.
+
+
+
+
+Two Way Binding : combination of property and event binding.
+                  NgModel is used to create two way data binding (shouldimport forms module to app.module.ts).
+                  banana in box model [(ngModel)]
+                  (have to import FormsModule to app.ts file)
+                 ex : <input type = "text" [(ngModel)] = "name"> //"name" data prperty is used as the value for i/p.updated when user changes the value.
+
+
+
+Pipes : carry informations-- can take in values and return values--uses or |symbol
+         ex: decimal pipe : {{454.78787814 | number '3.4'}} => 454.7878
+             percent pipe : {{00.54565| percent}} => 55%
+
+
+
+Structural Directives :-change th dome layout
+ NgFor : used as for loop
+         ex: <tr *ngFor = "let i of months"></tr>
+                     * - shortcu allows to create a template
+                      i - creating a local variable
+                     months-made avilable in the component class
+
+ NgIf  : used as if condition
+          ex: <div *ngIf ="isavailable; then condition1 else condition2">   // isavailabe given inside .ts class
+              <ng-template #condition1> condition is valid </ng-template>   //if-else-condition
+              <ng-template #condition2> condition is invalid </ng-template>
+
+
+NgStyle : to give dome elements style properties
+          ex: <div [ngStyle] ="{'background-color':'green'} ></div>
+          used when valuesare given dynamically.
+
+ngClass : allows to dynamically add css elements.
+
+Custom Directories :- user created
+                      ng g directive <directivename> : used to create custom directives.
+                      two file- spec.ts and .ts
+                      In .ts file, there is a class and constructor which takes the element of type ElementRef  // constructor(element :ElementRef)
+                      It has a selector property, that selector is given to needed html file where the change is needed.
+
+
+
+* SaSS and LESS : Syntatical Awesome Stylesheet and Leaner CSS
+                  both are special styesheets extensions for designing
+                  uses special characters to assign variable
+                       SaSS => $ sign
+                       LESS => @ symbol, uses javascripts
+
+
+                 
+* Lazy Loading : It has the effect of speeding up the operation of a website.
+                 It allows to specify which parts of a website should be loadedat the startup.
+                 The principle consists of splitting the file in severalpats which will be loaded ony in due time.
+
+
+
+                                ROUTING
+
+* give paths for each compnent in routes in app.routing.ts
+  give RouterModule.forRoot(appRoutes) in imports and also import the same on the top import section.
+* it must be given as <a routerLink=/<path name> </a> in the component.html page so that the link works.
+
+
+                @Input Decorator
+
+* child accepts input fromthe parent.[parent to child]
+* it allows to bind the component property from outside.
+* allows parent component to update data in the child component.
+* to call in the parent component.
+
+  Ex:  @Input() recipe: Recipe;  // given in child component.ts
+       *ngFor="let recipeEl of recipes" [recipe]="recipeEl"  // given in parent component.html
+
+     here recipe is defined in both which gets called in the parent component.
+
+                @Output Decorator
+
+* child sends out event to parent as the child component cannot directly bind with the selector.
+* allows child to send data to the parent.
+* event emitter is to be given
+  @Output <variable name> : EventEmitter<type>
+  It allows to emit our own events.
+
+* also create function which emits the value (particular variable) andassugns to $event.
+  $event => to fetch the value
+
+

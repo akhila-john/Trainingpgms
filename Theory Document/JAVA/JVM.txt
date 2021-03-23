@@ -1,0 +1,109 @@
+JVM architeture consists of :
+
+1] Class Loader - includes loading, linking and initialization.
+2] JVM memory - it contains various segments:
+    * native method stacks : holds the instructions of the native codes that depends on the native library
+    * PC register : stores the address of JVM instructions that arecurrently in execution.
+    * JVM language stacks : it stores all java local variables.
+Threads will have itsown pcregisters and JVM language stacks.
+    * Heap : common memory and shared among all the threads
+              all variable that points to the object and arrays are stored in the heap.
+    * Method area : dedicated to store class structures like metadata, allthe constant run time pools
+3] It contains other segemnts like:
+    * native method libraries, native method interface and execution engines.
+
+
+WRITING A DIRECTIVE
+
+Syntax: [  //array of directives
+           {  // directive block
+              //directive 1
+              match: ["java*.*", "oracle*.*"],   //first is to provide match attribute and depending on match crieria different blocks are applied (ex: java,oracle)
+              c1: {                              //c1 block and given the directive (compiler options) options to attribte c1 which must be comma separated.
+                Enable: true,                    // directive options (key-value pairs)
+                Exclude: true,
+                BreakAtExecute: true,
+                  },
+              c2: {                        // c2 block
+                Enable: false,
+                MaxNodeLimit: 1000,
+                  },
+              BreakAtCompile: true,      //these options are applicable to all the compilers within the common block
+              DumpReplay: true,
+         },
+         {  // directive block
+             
+         },  //directive 2
+       ]
+
+CLASS DATA SHARING [CDS]
+
+* helps reduce startup time 
+* supports archiving classes from module paths.
+
+Creating CDS :-
+* using the interpreter java along with specification.
+
+      code for creating CDS (command prompt) :-
+
+java -Xshare:dump -XX:ShareClassListFile=<class list file> \
+-XX:ShareArchiveFile=<shared archive file> \
+--module-path=<path to modular jar> -m <module name>
+
+* first -Xshare:dump followedby switch-XX using which wecan specify the ShareClassListFile and classfiles.
+* next add -XX:ShareArchiveFile and specify the archive name followedby the module path.
+* specify switch -m to specify the module name.
+
+      code for running a CDS program :-
+
+
+java -Xshare:on -XX:ShareArchiveFile=<shared archive file> \
+--module-path=<path to modular jar> -m <module name>
+
+* -Xshare:on followed by -XX:ShareArchiveFile and specify the archive name followedby the module path. 
+* the module path should always point to the path where the module jar is located.
+
+           HOTSPOT
+
+Components are :
+1] VM runime : providesrun time environmnt.
+2] JIT compiler : compiles the codes to generate the bytecodes
+3] Memory manager: manages the memory
+
+JAVA PACKAGES
+
+* Java.lang : provides object clss andclass class itself.
+* Java.util : provides generic java utilities, formatted printing and scanning throgh clases, dateandtime, event model,array manipultion.
+* Java.io : reading input from data stream, writing output to data streams, manipilate files, serailization.
+* Java.net : classesand intefcaes for networking in java.
+* Java.security : allows encrypting the files.
+
+JAVA SERIAIZATION FILTERS
+
+% to filter the incoming serialized data.
+% no
+% setting serialization security:
+  Open jdk directory -> conf -> security -> selcet java.security using notepad.
+% To use any of the filtrs uncomment and then save them.
+
+   PROCESS API
+
+=> aparocess Management Lifecycle
+
+Strategy
+Analysis
+Design
+Implementation
+Monitoring and process control
+Optimization
+
+  
+
+
+
+
+
+
+
+
+

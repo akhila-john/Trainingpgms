@@ -1,0 +1,26 @@
+
+* have two parts : FRONT END & BACK END
+
+# FRONT-END
+> also called clinet..the part runs in the web browser which the user sees and 
+   interacts with.
+> includes  User Interface UI
+> useshtml, css, typescript and angular to build FRONT END
+
+
+# BACK-END
+> responsible for storing data and processing them.
+> front end talks with back end and saves the data.
+> storing data in the server (database..HTTP services).
+
+
+>The client sends an HTTP request at the endpoint and get some data.
+> Web application has a front end an backend.
+> Back end has one or more databases and APIsthat makes available for client.
+> Front end has the html templates and presentation logics.
+> 
+
+
+
+
+
